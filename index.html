@@ -17,14 +17,19 @@
 
 <p>Select the evidence you DON'T have:</p>
 
-<label for="evidence">Evidence:</label>
-<select id="evidence">
-    <option value="Spirit Book">Spirit Book</option>
-    <option value="Freezing Temperatures">Freezing Temperatures</option>
-    <option value="Ghost Orb">Ghost Orb</option>
-    <option value="EMF Level 5">EMF Level 5</option>
-    <option value="Toxic">Toxic</option>
-    <option value="Gas">Gas</option>
+<label for="evidence1">Evidence 1:</label>
+<select id="evidence1" class="evidence-dropdown">
+    <!-- Add your evidence options here -->
+</select>
+
+<label for="evidence2">Evidence 2:</label>
+<select id="evidence2" class="evidence-dropdown">
+    <!-- Add your evidence options here -->
+</select>
+
+<label for="evidence3">Evidence 3:</label>
+<select id="evidence3" class="evidence-dropdown">
+    <!-- Add your evidence options here -->
 </select>
 
 <button onclick="identifyGhost()">Identify Ghost</button>
@@ -33,25 +38,22 @@
 
 <script>
     function identifyGhost() {
-        var evidence = document.getElementById("evidence").value;
+        var evidenceDropdowns = document.getElementsByClassName("evidence-dropdown");
         var result = document.getElementById("result");
+        var selectedEvidence = [];
+
+        // Collect selected evidence from all dropdowns
+        for (var i = 0; i < evidenceDropdowns.length; i++) {
+            selectedEvidence.push(evidenceDropdowns[i].value);
+        }
 
         // Ghost identification logic based on selected evidence
-        switch (evidence) {
-            case "Spirit Book":
-            case "Freezing Temperatures":
-            case "Ghost Orb":
-                result.textContent = "The ghost may be a Spirit, Poltergeist, Shade, or Banshee.";
-                break;
-            case "EMF Level 5":
-                result.textContent = "The ghost may be a Banshee, Spectre, or Wither.";
-                break;
-            case "Toxic":
-            case "Gas":
-                result.textContent = "The ghost may be a Banshee, Ghoul, Spook, or Wither.";
-                break;
-            default:
-                result.textContent = "Invalid evidence selection.";
+        // Customize this logic based on your specific requirements
+        if (selectedEvidence.length === 0) {
+            result.textContent = "Please select at least one piece of evidence.";
+        } else {
+            // Add your logic here to identify the ghost based on selected evidence
+            result.textContent = "Ghost identification logic goes here.";
         }
     }
 </script>
