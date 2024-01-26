@@ -20,6 +20,6 @@ Open the index.html file in your web browser.
 
 Select the evidence you don't have and click the "Identify Ghost" button.
 
-Usage
+## Usage
 Choose the evidence you don't have from the dropdown menu.
 Click the "Identify Ghost" button to see potential ghost types.
