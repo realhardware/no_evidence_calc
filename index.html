@@ -1,1 +1,60 @@
-// test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paranormica Ghost Identifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Paranormica Ghost Identifier</h1>
+
+<p>Select the evidence you DON'T have:</p>
+
+<label for="evidence">Evidence:</label>
+<select id="evidence">
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
+</select>
+
+<button onclick="identifyGhost()">Identify Ghost</button>
+
+<p id="result"></p>
+
+<script>
+    function identifyGhost() {
+        var evidence = document.getElementById("evidence").value;
+        var result = document.getElementById("result");
+
+        // Ghost identification logic based on selected evidence
+        switch (evidence) {
+            case "Spirit Book":
+            case "Freezing Temperatures":
+            case "Ghost Orb":
+                result.textContent = "The ghost may be a Spirit, Poltergeist, Shade, or Banshee.";
+                break;
+            case "EMF Level 5":
+                result.textContent = "The ghost may be a Banshee, Spectre, or Wither.";
+                break;
+            case "Toxic":
+            case "Gas":
+                result.textContent = "The ghost may be a Banshee, Ghoul, Spook, or Wither.";
+                break;
+            default:
+                result.textContent = "Invalid evidence selection.";
+        }
+    }
+</script>
+
+</body>
+</html>
