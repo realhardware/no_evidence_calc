@@ -19,32 +19,86 @@
 
 <label for="evidence1">Evidence 1:</label>
 <select id="evidence1" class="evidence-dropdown">
+    <option value=""> </option>
     <option value="Spirit Book">Spirit Book</option>
     <option value="Freezing Temperatures">Freezing Temperatures</option>
     <option value="Ghost Orb">Ghost Orb</option>
     <option value="EMF Level 5">EMF Level 5</option>
     <option value="Toxic">Toxic</option>
     <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
 </select>
 
 <label for="evidence2">Evidence 2:</label>
 <select id="evidence2" class="evidence-dropdown">
+    <option value=""> </option>
     <option value="Spirit Book">Spirit Book</option>
     <option value="Freezing Temperatures">Freezing Temperatures</option>
     <option value="Ghost Orb">Ghost Orb</option>
     <option value="EMF Level 5">EMF Level 5</option>
     <option value="Toxic">Toxic</option>
     <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
 </select>
 
 <label for="evidence3">Evidence 3:</label>
 <select id="evidence3" class="evidence-dropdown">
+    <option value=""> </option>
     <option value="Spirit Book">Spirit Book</option>
     <option value="Freezing Temperatures">Freezing Temperatures</option>
     <option value="Ghost Orb">Ghost Orb</option>
     <option value="EMF Level 5">EMF Level 5</option>
     <option value="Toxic">Toxic</option>
     <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
+</select>
+
+<label for="evidence4">Evidence 4:</label>
+<select id="evidence4" class="evidence-dropdown">
+    <option value=""> </option>
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
+</select>
+
+<label for="evidence5">Evidence 5:</label>
+<select id="evidence5" class="evidence-dropdown">
+    <option value=""> </option>
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
+</select>
+
+<label for="evidence6">Evidence 6:</label>
+<select id="evidence6" class="evidence-dropdown">
+    <option value=""> </option>
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
+</select>
+
+<label for="evidence7">Evidence 7:</label>
+<select id="evidence7" class="evidence-dropdown">
+    <option value=""> </option>
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
+    <option value="Spirit Box">Spirit Box</option>
 </select>
 
 <button onclick="identifyGhost()">Identify Ghost</button>
@@ -62,16 +116,19 @@
             selectedEvidence.push(evidenceDropdowns[i].value);
         }
 
+        // Remove empty strings from the selected evidence array
+        selectedEvidence = selectedEvidence.filter(evidence => evidence !== "");
+
         // Ghost identification logic based on selected evidence
         if (selectedEvidence.length === 0) {
             result.textContent = "Please select at least one piece of evidence.";
         } else {
-            var ghostType = identifyGhostType(selectedEvidence);
-            result.textContent = "A potential ghost type that doesn't have the selected evidence: " + ghostType;
+            var ghostTypes = identifyGhostTypes(selectedEvidence);
+            result.textContent = "Potential ghost types that don't have the selected evidence: " + ghostTypes.join(', ');
         }
     }
 
-    function identifyGhostType(selectedEvidence) {
+    function identifyGhostTypes(selectedEvidence) {
         // Ghost identification logic goes here
         // Customize this logic based on your specific requirements
 
@@ -138,8 +195,7 @@
             potentialGhosts.push("Whisper");
         }
 
-        // Return a random potential ghost type from the list
-        return potentialGhosts[Math.floor(Math.random() * potentialGhosts.length)];
+        return potentialGhosts;
     }
 </script>
 
