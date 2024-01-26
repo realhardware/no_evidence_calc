@@ -15,21 +15,36 @@
 
 <h1>Paranormica Ghost Identifier</h1>
 
-<p>Select the evidence you DON'T have:</p>
+<p>Select the evidence you HAVE:</p>
 
 <label for="evidence1">Evidence 1:</label>
 <select id="evidence1" class="evidence-dropdown">
-    <!-- Add your evidence options here -->
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
 </select>
 
 <label for="evidence2">Evidence 2:</label>
 <select id="evidence2" class="evidence-dropdown">
-    <!-- Add your evidence options here -->
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
 </select>
 
 <label for="evidence3">Evidence 3:</label>
 <select id="evidence3" class="evidence-dropdown">
-    <!-- Add your evidence options here -->
+    <option value="Spirit Book">Spirit Book</option>
+    <option value="Freezing Temperatures">Freezing Temperatures</option>
+    <option value="Ghost Orb">Ghost Orb</option>
+    <option value="EMF Level 5">EMF Level 5</option>
+    <option value="Toxic">Toxic</option>
+    <option value="Gas">Gas</option>
 </select>
 
 <button onclick="identifyGhost()">Identify Ghost</button>
@@ -48,13 +63,83 @@
         }
 
         // Ghost identification logic based on selected evidence
-        // Customize this logic based on your specific requirements
         if (selectedEvidence.length === 0) {
             result.textContent = "Please select at least one piece of evidence.";
         } else {
-            // Add your logic here to identify the ghost based on selected evidence
-            result.textContent = "Ghost identification logic goes here.";
+            var ghostType = identifyGhostType(selectedEvidence);
+            result.textContent = "A potential ghost type that doesn't have the selected evidence: " + ghostType;
         }
+    }
+
+    function identifyGhostType(selectedEvidence) {
+        // Ghost identification logic goes here
+        // Customize this logic based on your specific requirements
+
+        var potentialGhosts = [];
+
+        // Example logic - customize based on your game's rules
+        if (!selectedEvidence.includes("Spirit Book") &&
+            !selectedEvidence.includes("Freezing Temperatures") &&
+            !selectedEvidence.includes("Ghost Orb")) {
+            potentialGhosts.push("Spirit");
+        }
+
+        if (!selectedEvidence.includes("Spirit Box") &&
+            !selectedEvidence.includes("Freezing Temperatures") &&
+            !selectedEvidence.includes("Ghost Orb")) {
+            potentialGhosts.push("Poltergeist");
+        }
+
+        if (!selectedEvidence.includes("Toxic") &&
+            !selectedEvidence.includes("Spirit Book") &&
+            !selectedEvidence.includes("Freezing Temperatures")) {
+            potentialGhosts.push("Demon");
+        }
+
+        if (!selectedEvidence.includes("EMF Level 5") &&
+            !selectedEvidence.includes("Spirit Box") &&
+            !selectedEvidence.includes("Ghost Orb")) {
+            potentialGhosts.push("Shade");
+        }
+
+        if (!selectedEvidence.includes("EMF Level 5") &&
+            !selectedEvidence.includes("Freezing Temperatures") &&
+            !selectedEvidence.includes("Ghost Orb")) {
+            potentialGhosts.push("Banshee");
+        }
+
+        if (!selectedEvidence.includes("Spirit Box") &&
+            !selectedEvidence.includes("Toxic") &&
+            !selectedEvidence.includes("EMF Level 5")) {
+            potentialGhosts.push("Ghoul");
+        }
+
+        if (!selectedEvidence.includes("Spirit Box") &&
+            !selectedEvidence.includes("Toxic") &&
+            !selectedEvidence.includes("Gas")) {
+            potentialGhosts.push("Spook");
+        }
+
+        if (!selectedEvidence.includes("EMF Level 5") &&
+            !selectedEvidence.includes("Spirit Box") &&
+            !selectedEvidence.includes("Gas")) {
+            potentialGhosts.push("Spectre");
+        }
+
+        if (!selectedEvidence.includes("Ghost Orb") &&
+            !selectedEvidence.includes("Freezing Temperatures") &&
+            !selectedEvidence.includes("Gas")) {
+            potentialGhosts.push("Wither");
+        }
+
+        if (!selectedEvidence.includes("Spirit Book") &&
+            !selectedEvidence.includes("Freezing Temperatures") &&
+            !selectedEvidence.includes("Gas")) {
+            potentialGhosts.push("Whisper");
+        }
+
+        // Return a random potential ghost type from the list
+        return potentialGhosts[Math.floor(Math.random() * potentialGhosts.length)];
     }
 </script>
 
